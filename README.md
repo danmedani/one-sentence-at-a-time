@@ -1,6 +1,6 @@
 # One Sentence at a Time
 
-A tiny local web app that helps you grow a story one sentence at a time, with Gemini suggesting candidate next sentences.
+A small local web app that helps you grow a story one sentence at a time, with Gemini suggesting candidate next sentences.
 
 ## How it works
 
