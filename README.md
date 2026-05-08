@@ -9,14 +9,14 @@ A small local web app that helps you grow a story one sentence at a time, with G
 3. Click any suggestion — it lands in the yellow **Pending** panel (which is itself directly editable) and the other suggestions clear.
 4. From the pending panel you can:
    - Edit the text directly in the textarea.
-   - **Commit** — appends the pending sentence to `stories/<name>.txt` and clears the pending state.
+   - **Commit** — appends the pending sentence to `stories/<name>.md` and clears the pending state.
    - **Tweak** — type an instruction (e.g. "make it darker", "shorter", "from her perspective") and get a fresh batch of 5–10 candidates anchored on what you'd selected.
    - **Discard** — drop the pending sentence and start over.
 5. Click **¶ New paragraph** to start a paragraph break before the next committed sentence.
 6. Hover any committed paragraph to reveal **Edit** and **Delete** actions for in-place fixes.
-7. Click **Download** in the header to save the current story as a `.txt` file.
+7. Click **Download** in the header to save the current story as a `.md` file.
 
-Stories live as plain `.txt` files in `stories/`. Sentences within a paragraph are joined by single spaces; paragraphs are separated by blank lines. You can also edit the files directly on disk — the app picks up changes whenever a story is loaded.
+Stories live as Markdown (`.md`) files in `stories/`. Sentences within a paragraph are joined by single spaces; paragraphs are separated by blank lines, which Markdown renders as paragraphs (so they look nice on GitHub). You can also edit the files directly on disk — the app picks up changes whenever a story is loaded.
 
 ## Requirements
 
@@ -53,13 +53,13 @@ Environment variables read at startup:
 | Variable | Default | Notes |
 | --- | --- | --- |
 | `GEMINI_API_KEY` | _(required)_ | Server refuses to start without it. |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Any Gemini model your key has access to. |
+| `GEMINI_MODEL` | `gemini-3-flash-preview` | Any Gemini model your key has access to. |
 
 ## Layout
 
 ```
 server.py             FastAPI app + Gemini calls
 static/index.html     Single-page UI (vanilla JS)
-stories/              Your story .txt files live here
+stories/              Your story .md files live here
 requirements.txt
 ```

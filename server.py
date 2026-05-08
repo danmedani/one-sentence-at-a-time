@@ -12,7 +12,7 @@ from google.genai import types
 ROOT = Path(__file__).parent
 STORIES_DIR = ROOT / "stories"
 STATIC_DIR = ROOT / "static"
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
 
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
@@ -27,7 +27,7 @@ SAFE_NAME = re.compile(r"^[A-Za-z0-9 _\-]+$")
 def story_path(name: str) -> Path:
     if not SAFE_NAME.match(name):
         raise HTTPException(400, "Invalid story name (use letters, numbers, spaces, _ or -).")
-    return STORIES_DIR / f"{name}.txt"
+    return STORIES_DIR / f"{name}.md"
 
 
 def read_story(name: str) -> str:
@@ -39,7 +39,7 @@ def read_story(name: str) -> str:
 
 @app.get("/api/stories")
 def list_stories():
-    names = sorted(p.stem for p in STORIES_DIR.glob("*.txt"))
+    names = sorted(p.stem for p in STORIES_DIR.glob("*.md"))
     return {"stories": names}
 
 
@@ -112,7 +112,7 @@ def download_story(name: str):
     p = story_path(name)
     if not p.exists():
         raise HTTPException(404, "Story not found.")
-    return FileResponse(p, media_type="text/plain", filename=f"{name}.txt")
+    return FileResponse(p, media_type="text/markdown", filename=f"{name}.md")
 
 
 SUGGEST_SCHEMA = {

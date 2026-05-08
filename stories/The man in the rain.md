@@ -1,3 +1,3 @@
 No one saw the man standing perfectly still in the rain-drenched field, not even the crows. Countless puddles formed, each one mirroring a piece of the vast sky above. The crows, oblivious, continued their patient hunt for earthworms. Suddenly, a guttural yell ripped from the man's throat, shattering the field's quiet.
 
-The black birds startled, their heads snapping skyward in unison.
+The black birds startled, their heads snapping skyward in unison. The air around him shimmered for a heartbeat before he literally blew apart, his physical form replaced by a shockwave that sent the rain flying in every direction.
